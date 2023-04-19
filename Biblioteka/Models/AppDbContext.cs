@@ -6,8 +6,8 @@ namespace Biblioteka.Models
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Clan> Clanovi { get; set; }
-        public DbSet<Knjiga> Knjige { get; set; }
+        public DbSet<Clan>? Clanovi { get; set; }
+        public DbSet<Knjiga>? Knjige { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 

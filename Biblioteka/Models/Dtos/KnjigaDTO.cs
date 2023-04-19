@@ -1,11 +1,9 @@
-﻿namespace Biblioteka.Models
+﻿namespace Biblioteka.Models.Dtos
 {
-    public class Knjiga
+    public class KnjigaDTO
     {
         public int Id { get; set; }
         public string? Naziv { get; set; }
         public string? Autor { get; set; }
-        public int ClanId { get; set; }
-        public Clan? Clan { get; set; }
     }
 }
