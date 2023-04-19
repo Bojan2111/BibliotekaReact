@@ -7,6 +7,7 @@ namespace Biblioteka.Models.Dtos
         public KnjigaProfile()
         {
             CreateMap<Knjiga, KnjigaDTO>();
+            CreateMap<Clan, KnjigaDTO>();
         }
     }
 }

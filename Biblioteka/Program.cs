@@ -1,5 +1,8 @@
 using Biblioteka.Models;
 using Biblioteka.Models.Login;
+using Biblioteka.Models.Dtos;
+using Biblioteka.Repository;
+using Biblioteka.Repository.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -51,10 +54,10 @@ builder.Services.AddCors(options =>
         });
 });
 
-//builder.Services.AddAutoMapper(typeof(PaketProfile));
+builder.Services.AddAutoMapper(typeof(KnjigaProfile));
 
-//builder.Services.AddScoped<IKuririRepository, KuririRepository>();
-//builder.Services.AddScoped<IPaketiRepository, PaketiRepository>();
+builder.Services.AddScoped<IKnjigeRepository, KnjigeRepository>();
+builder.Services.AddScoped<IClanoviRepository, ClanoviRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -67,6 +70,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors();
+
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 
 app.MapControllerRoute(
